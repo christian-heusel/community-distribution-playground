@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: workspaces-frontend
-  namespace: kubeflow-workspaces
+  name: workspaces-backend
 spec:
   podSelector:
     matchLabels:
-      app.kubernetes.io/name: workspaces-frontend
+      app: workspaces-backend
+      app.kubernetes.io/component: api
   ingress:
     - from:
+        ## allow traffic from istio namespace, which is where the istio ingress gateway pods typically run
         - namespaceSelector:
             matchExpressions:
               - key: kubernetes.io/metadata.name
                 operator: In
                 values:
                   - istio-system
-        - podSelector: {}
   policyTypes:
     - Ingress
