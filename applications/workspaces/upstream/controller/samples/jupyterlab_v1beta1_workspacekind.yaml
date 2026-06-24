@@ -3,10 +3,6 @@ kind: WorkspaceKind
 metadata:
   name: jupyterlab
 spec:
-  ## ================================================================
-  ## SPAWNER CONFIGS
-  ##  - how the WorkspaceKind is displayed in the Workspace Spawner UI
-  ## ================================================================
   spawner:
 
     ## the display name of the WorkspaceKind
